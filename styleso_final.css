@@ -1,0 +1,230 @@
+/* Global Variables */
+:root {
+    --bg: #fff;
+    --text: #222;
+    --accent: #0077ff;
+    --card-bg: #f0f0f0;
+    --border: #ccc;
+
+    --dark-bg: #121212;
+    --dark-text: #eee;
+    --dark-card: #1e1e1e;
+    --dark-border: #444;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+section { 
+    margin-bottom: 30;
+}
+
+h1, h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: var(--card-bg);
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+/* Navigation Bar Styles */
+nav {
+    background: var(--card-bg);
+    padding: 10px 0;
+    border-bottom: 2px solid var(--border);
+    transition: background 0.3s;
+}
+
+nav ul { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav button {
+    background-color: var(--accent);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover {
+    background-color: #005fa3;
+}
+
+/* Center Task Filters and JSON Export Button
+#task-filters,
+#task-manager {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#task-filters button,
+#exportJSON {
+    margin: 5px;
+}
+
+*/
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input {
+    margin: 8px 0;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 10px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #005fa3;
+}
+
+/* Footer Styles (Centered and at the bottom) */
+footer {
+    background: var(--card-bg);
+    color: var(--text);
+    padding: 10px 0;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Thank You Message */
+#thankYouMessage {
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode nav {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode li {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode footer {
+    background: var(--dark-card);
+    color: var(--dark-text);
+}
+
+body.dark-mode form input,
+body.dark-mode form button {
+    background-color: #333;
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+body.dark-mode form input:focus,
+body.dark-mode form button:focus {
+    border-color: var(--accent);
+}
+
+/* Boxed Content for Facts and Testimonials */
+.fact-container,
+.testimonial-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+body.dark-mode .fact-container,
+body.dark-mode .testimonial-card {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+.fact-container p,
+.testimonial-card p {
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+body.dark-mode .fact-container p,
+body.dark-mode .testimonial-card p {
+    color: var(--dark-text);
+}
+
+/*Spacing between each fact/testimonial*/
+.fact-container + .fact-container,
+.testimonial-card + .testimonial-card { 
+    margin-top: 20px;
+}
+
+/* Smooth Transitions for Dark Mode */
+body, nav, li, footer, #thankYou {
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Hide Elements (used for the Thank You Message) */
+.hidden {
+    display: none;
+}
