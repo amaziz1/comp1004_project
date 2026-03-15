@@ -1,68 +1,64 @@
-TaskFlow - SPA Task Manager
+# TaskFlow - SPA Task Manager
 
 Simplifying task management with a responsive, clutter-free interface.
 
-=============================================================================================================================================================================
-Overview:
+---
+
+## Overview:
 TaskFlow is a lightweight, Single Page Application (SPA) designed to improve personal productivity through fast, intuitive task management. Users can create, edit, delete, track, and filter tasks, in a browser-based interface, all without the complexity of full-scale productivity platforms.
 
-Task Flow focuses on simplicity, responsiveness, and accessibility, making it ideal for individuals who want an effective way to organize daily tasks without distractions.
+TaskFlow focuses on simplicity, responsiveness, and accessibility, making it ideal for individuals who want an effective way to organize daily tasks without distractions.
 
-=============================================================================================================================================================================
-Project Vision
+---
 
+## Project Vision
 TaskFlow aims to provide a streamlined, user-friendly productivity tool that enables:
 
-> Quick creation and management of tasks.
-> Responsive Design for desktop and mobile devices.
-> Data Persistence with localStorage.
-> Accessibility, including full keyboard navigation.
-> Seamless switching between light and dark modes.
+- Quick creation and management of tasks.
+- Responsive Design for desktop and mobile devices.
+- Data Persistence with localStorage.
+- Accessibility, including full keyboard navigation.
+- Seamless switching between light and dark modes.
 
 By prioritizing simplicity over complex features like team collaboration or reminders.
 TaskFlow allows users to stay productive without interruptions.
 
-=============================================================================================================================================================================
-Core Features
+---
 
-Task Management & Tracking:
+## Core Features
 
-> Create, edit, and delete tasks with titles and deadlines.
-> Mark tasks as completed, visually differentiating them.
+### Task Management & Tracking:
+- Create, edit, and delete tasks with titles and deadlines.
+- Mark tasks as completed, visually differentiating them.
 
-Filtering & Data Management:
+### Filtering & Data Management:
+- Filter tasks by status: All, Active, Completed.
+- Filter tasks by category: Work, Personal, Urgent.
+- Automatic saving via browser localStorage.
+- JSON export/import for backup or sharing.
 
-> Filter tasks by status: All, Active, Completed.
-> Filter tasks by category: Work, Personal, Urgent.
-> Automatic saving via browser localStorage.
-> JSON export/import for backup or sharing.
+### User Experience:
+- Light/Dark mode toggle with saved preference.
+- Responsive interface for multiple screen sizes.
+- Smooth SPA navigation without page reloads.
+- Accessible keyboard navigation with ARIA labels.
 
-User Experience:
+---
 
-> Light/Dark mode toggle with saved preference.
-> Responsive interface for multiple screen sizes.
-> Smooth SPA navigation without page reloads.
-> Accessible keyboard navigation with ARIA labels.
+## Development Process
 
-=============================================================================================================================================================================
-Development Process
-
-Agile Workflow:
-
+### Agile Workflow:
 TaskFlow Was developed using Agile-inspired iterative approach:
 
-   1. Incremental Sprints: Features were implemented and tested in 10 bi-weekly sprints, starting with the SPA layout and progressing to task management, data persistence,        and UI improvement.
+- **Incremental Sprints:** Features were implemented and tested in 10 bi-weekly sprints, starting with the SPA layout and progressing to task management, data persistence, and UI improvement.
       
-   2. Continuous Testing: Usability, functional, and performance testing occurred at every stage to ensure a reliable user experience.
+- **Continuous Testing:** Usability, functional, and performance testing occurred at every stage to ensure a reliable user experience.
       
-   3. Iterative Improvements: Feedback from each sprint guided refinements, including accessibility enhancements, layout adjustments, and bug fixes.
+- **Iterative Improvements:** Feedback from each sprint guided refinements, including accessibility enhancements, layout adjustments, and bug fixes.
 
-=============================================================================================================================================================================
-Sprint Highlights
-
-+---------------------------------------------------------------------------+
+### Sprint Highlights
 | Sprint | Focus                  | Outcome                                 |
-+---------------------------------------------------------------------------+
+| :----: | :--------------------: | :-------------------------------------: |
 | 1      | SPA Layout             | Initial Application Structure           |
 | 2      | Styling                | Responsive design applied               |
 | 3      | Interactive Features   | Dark mode toggle, SPA navigation        |
@@ -72,84 +68,85 @@ Sprint Highlights
 | 7      | Prototype Review       | Stable demonstration                    |
 | 8-9    | Testing & Improvements | Usability fixes, bug resolution         |
 | 10     | Final Refinement       | Full application ready for deployment   |
-+---------------------------------------------------------------------------+
 
-=============================================================================================================================================================================
-Functional & Non-Functional Requirements
+---
 
-Functional Requirements:
+## Functional & Non-Functional Requirements
 
-> Task creation, editing, deletion.
-> Mark tasks as completed.
-> Task filtering by status/category.
-> LocalStorage persistence
-> Dark mode toggle
-> JSON export/import
+### Functional Requirements:
+- Task creation, editing, deletion.
+- Mark tasks as completed.
+- Task filtering by status/category.
+- LocalStorage persistence
+- Dark mode toggle
+- JSON export/import
 
-Non-Functional Requirements:
+### Non-Functional Requirements:
+- Responsive design for mobile and desktop.
+- Fast, efficient performance.
+- Accessibility compliance.
+- Cross-browser compatibility (Chrome, Firefox, Safari, Edge).
 
-> Responsive design for mobile and desktop.
-> Fast, efficient performance.
-> Accessibility compliance.
-> Cross-browser compatibility (Chrome, Firefox, Safari, Edge).
+---
 
-=============================================================================================================================================================================
-Technologies Used
+## Technologies Used
+- **HTML** - structure and content.
+- **CSS** - styling, responsive layout, and dark mode.
+- **JavaScript** - SPA navigation, task management, JSON handling.
+- **LocalStorage** - persistent data storage.
 
-> HTML - structure and content.
-> CSS - styling, responsive layout, and dark mode.
-> JavaScript - SPA navigation, task management, JSON handling.
-> LocalStorage - persistent data storage.
+---
 
-=============================================================================================================================================================================
-Installation & Usage
-  
-   1. Clone the repository: git clone  https://github.com/<amaziz1>/taskflow.git
-   2. Open task_flow.html in a modern web browser.
-   3. Navigate sections using the menu bar or scroll naturally.
-   4. Task Manager:
-      > Add tasks with title, deadline, category.
-      > Filter tasks by status or category.
-      > Mark tasks complete or delete them.
-      > Export tasks as JSON or import tasks from a JSON file.
-   5. Toggle Light/Dark Mode using the moon/sun button in the navigation bar.
+## Installation & Usage
+1. Close the repository:
+   ```bash
+   git clone https://github.com/amaziz1/taskflow.git
+3. Open `task_flow.html` in a modern web browser.
+4. Navigate sections using the menu bar or scroll naturally.
 
-=============================================================================================================================================================================
-Legal, Ethical, and Professional Considerations
+### Task Manager
+- Add tasks with a title, deadline, and category.
+- Filter tasks by status or category.
+- Mark tasks complete or delete them.
+- Export tasks as JSON or import tasks from a JSON file.
+- Toggle Light/Dark Mode using the moon/sun button in the navigation bar.
 
-> Data Privacy: All tasks are stored locally; no external server communication.
-> Accessibility: Interface designed for responsive usage and keyboard navigation.
-> Professional Practices: GitHub version control, structure documentation, and Agile workflow applied throughout development.
+---
 
-=============================================================================================================================================================================
-Contributing
+## Legal, Ethical, and Professional Considerations
+- **Data Privacy:** All tasks are stored locally; no external server communication.
+- **Accessibility:** Interface designed for responsive usage and keyboard navigation.
+- **Professional Practices:** GitHub version control, structure documentation, and Agile workflow applied throughout development.
 
+---
+
+## Contributing
 TaskFlow is a prototype. Contributions are welcome, especially in:
 
-> Advanced features (e.g., reminders, prioritization, notifications).
-> Accessibility enhancements.
-> External integrations or collaboration features.
+- Advanced features (e.g., reminders, prioritization, notifications).
+- Accessibility enhancements.
+- External integrations or collaboration features.
 
 Submit a pull request or open an issue for bug reports or suggestions.
 
-=============================================================================================================================================================================
-License
+---
 
-This project is licensed under the MIT License. See LICENSE for details.
+## License
+This project is licensed under the MIT License. See `LICENSE.md` for details.
 
-=============================================================================================================================================================================
-Demo
+---
 
-Open taskflow.html locally to explore all features, including:
+## Demo
+Open `task_flow.html` locally to explore all features:
 
-> Task creation, editing, deletion.
-> Filtering by status and category.
-> Dark/Light mode toggle.
-> JSON export/import for tasks.
+- Task creation, editing, deletion.
+- Filtering by status and category.
+- Dark/Light mode toggle.
+- JSON export/import for tasks.
 
-=============================================================================================================================================================================
-Acknowledgements
+---
 
+## Acknowledgements
 Developed as part of COMP1004 - Computing Practice coursework. Inspired by Agile Principles, iterative development, and modern SPA design practices.
 
 
