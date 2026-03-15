@@ -100,7 +100,7 @@ TaskFlow Was developed using Agile-inspired iterative approach:
 ## Installation & Usage
 1. Close the repository:
    ```bash
-   git clone https://github.com/amaziz1/taskflow.git
+   git clone https://github.com/amaziz1/comp1004_project.git
 3. Open `task_flow.html` in a modern web browser.
 4. Navigate sections using the menu bar or scroll naturally.
 
