@@ -20,8 +20,7 @@ TaskFlow aims to provide a streamlined, user-friendly productivity tool that ena
 - Accessibility, including full keyboard navigation.
 - Seamless switching between light and dark modes.
 
-By prioritizing simplicity over complex features like team collaboration or reminders.
-TaskFlow allows users to stay productive without interruptions.
+By prioritizing simplicity over complex features like team collaboration or reminders, TaskFlow allows users to stay productive without interruptions.
 
 ---
 
@@ -48,7 +47,7 @@ TaskFlow allows users to stay productive without interruptions.
 ## Development Process
 
 ### Agile Workflow:
-TaskFlow Was developed using Agile-inspired iterative approach:
+TaskFlow was developed using an Agile-inspired iterative approach:
 
 - **Incremental Sprints:** Features were implemented and tested in 10 bi-weekly sprints, starting with the SPA layout and progressing to task management, data persistence, and UI improvement.
       
