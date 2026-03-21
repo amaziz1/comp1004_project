@@ -1,5 +1,9 @@
 # TaskFlow - SPA Task Manager
 
+**Author:** Anas Aziz
+**Repository:** comp1004_project (COMP1004 Coursework)
+**Stand-up Meeting Leader:** Muammad Asad
+
 Simplifying task management with a responsive, clutter-free interface.
 
 ---
@@ -146,7 +150,7 @@ Open `task_flow.html` locally to explore all features:
 ---
 
 ## Acknowledgements
-Developed as part of COMP1004 - Computing Practice coursework. Inspired by Agile Principles, iterative development, and modern SPA design practices.
+Developed by Anas Aziz as part of COMP1004 - Computing Practice coursework. Inspired by Agile Principles, iterative development, and modern SPA design practices.
 
 
 
