@@ -28,6 +28,7 @@ body {
 main {
     flex: 1;
     padding: 20px;
+    padding-bottom: 80px;
 }
 
 section {
@@ -63,10 +64,9 @@ nav {
 
 nav ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 nav button {
@@ -130,6 +130,12 @@ nav button:hover {
     transition: width 0.3s;
 }
 
+/*Task Manager Layout*/
+.task-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Task Priority Colors */
 li.low {
     border-left: 5px solid green;
@@ -191,25 +197,22 @@ form button {
     font-size: 16px;
 }
 
-        form button:hover {
-            background-color: #005fa3;
-        }
+form button:hover {
+    background-color: #005fa3;
+}
 
 /* Footer Styles */
 footer {
-    position: fixed;
-    bottom: 0;
+    position: relative;
     width: 100%;
     background: var(--card-bg);
     color: var(--text);
     padding: 10px 0;
     text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10;
 }
 
 /* Thank You Message */
-#thankYouMessage {
+#thankYou {
     display: none;
     background-color: #4CAF50;
     color: white;
@@ -264,6 +267,12 @@ body.dark-mode form button:focus,
 body.dark-mode form select:focus,
 body.dark-mode form textarea:focus {
     border-color: var(--accent);
+}
+
+body.dark-mode .task-search {
+    background-color: #333;
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
 }
 
 /* Boxed Content for Facts and Testimonials */
