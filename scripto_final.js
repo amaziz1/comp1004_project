@@ -9,13 +9,17 @@ document.querySelectorAll("nav a").forEach(link => {
     };
 });
 
-/* Dark Mode */
+/* Persistent Dark Mode */
 const toggle = document.getElementById("themeToggle");
+if(localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+    toggle.textContent = "☀️ Light Mode";
+}
 toggle.onclick = () => {
     document.body.classList.toggle("dark-mode");
-    toggle.textContent = document.body.classList.contains("dark-mode")
-        ? "☀️ Light Mode"
-        : "🌙 Dark Mode";
+    const isDark = document.body.classList.contains("dark-mode")
+    toggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    localStorage.setItem("darkMode", isDark);
 };
 
 /* Facts */
@@ -37,53 +41,74 @@ function updateFact() {
 }
 updateFact();
 
-/* Task Manager */
+/* Task Manager Updates for MVP */
+const taskForm = document.getElementById("taskForm");
+const taskInput = document.getElementById("taskInput");
+const taskDate = document.getElementById("taskDate");
+const taskCategory = document.getElementById("taskCategory");
+const taskPriority = document.getElementById("taskPriority"); // NEW
+const taskList = document.getElementById("taskList");
+const progressBar = document.getElementById("progressBar"); // NEW
+const taskSearch = document.getElementById("taskSearch"); // NEW
+
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let currentFilter = "all";
 let currentCategory = null;
+let currentSearch = "";
 
+/* Save Tasks */
 function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+/* Render Tasks (with search and priority) */
 function renderTasks() {
-    const list = document.getElementById("taskList");
+    const list = taskList;
     list.innerHTML = "";
 
-    tasks
+    const filteredTasks = tasks
         .filter(t =>
             (currentFilter === "all" ||
             (currentFilter === "active" && !t.completed) ||
             (currentFilter === "completed" && t.completed)) &&
-            (!currentCategory || t.category === currentCategory)
-        )
-        .forEach((task, idx) => {
-            const li = document.createElement("li");
-            li.innerHTML = `
-                ${task.text} (${task.category})
-                <button class="complete">✔</button>
-                <button class="delete">❌</button>
-            `;
-            li.querySelector(".complete").onclick = () => {
-                task.completed = true;
-                saveTasks();
-                renderTasks();
-            };
-            li.querySelector(".delete").onclick = () => {
-                tasks.splice(idx, 1);
-                saveTasks();
-                renderTasks();
-            };
-            list.appendChild(li);
-        });
+            (!currentCategory || t.category === currentCategory) &&
+            (!currentSearch || t.text.toLowerCase().includes(currentSearch))
+        );
+
+    filteredTasks.forEach((task, idx) => {
+        const li = document.createElement("li");
+        li.classList.add(task.priority); // add priority class for color
+        li.innerHTML = `
+            ${task.text} (${task.category}) [${task.priority}]
+            <button class="complete">✔</button>
+            <button class="delete">❌</button>
+        `;
+        li.querySelector(".complete").onclick = () => {
+            task.completed = !task.completed; // toggle
+            saveTasks();
+            renderTasks();
+        };
+        li.querySelector(".delete").onclick = () => {
+            tasks.splice(idx, 1);
+            saveTasks();
+            renderTasks();
+        };
+        list.appendChild(li);
+    });
+
+    // Update Progress Bar
+    const completed = tasks.filter(t => t.completed).length;
+    const percent = tasks.length ? (completed / tasks.length) * 100 : 0;
+    progressBar.style.width = percent + "%";
 }
 
-document.getElementById("taskForm").onsubmit = e => {
+taskForm.onsubmit = e => {
     e.preventDefault();
     tasks.push({
         text: taskInput.value,
         date: taskDate.value,
         category: taskCategory.value,
+        priority: taskPriority.value, // NEW
         completed: false
     });
     saveTasks();
@@ -91,6 +116,7 @@ document.getElementById("taskForm").onsubmit = e => {
     e.target.reset();
 };
 
+/* Task Filters */
 document.querySelectorAll("#task-filters button").forEach(btn => {
     btn.onclick = () => {
         document.querySelectorAll("#task-filters button").forEach(b => b.classList.remove("active"));
@@ -101,6 +127,12 @@ document.querySelectorAll("#task-filters button").forEach(btn => {
     };
 });
 
+/* Task Search */
+taskSearch.oninput = e => {
+    currentSearch = e.target.value.toLowerCase();
+    renderTasks();
+};
+
 renderTasks();
 
 /* Export JSON */
@@ -110,6 +142,44 @@ document.getElementById("exportJSON").onclick = () => {
     a.href = URL.createObjectURL(blob);
     a.download = "tasks.json";
     a.click();
+};
+
+/* Import JSON */
+const importBtn = document.getElementById("importJSONBtn");
+const importInput = document.getElementById("importJSON");
+
+importBtn.onclick = () => {
+    importInput.click();  // Open file picker
+};
+
+importInput.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+        try {
+            const importTasks = JSON.parse(event.target.result);
+
+            // Validate imported tasks
+            if (!Array.isArray(importTasks)) throw new Error("Invalid JSON format");
+
+            importTasks.forEach(task => {
+                if (!task.text || !task.date || !task.category) {
+                    throw new Error("Invalid task format");
+                }
+            });
+
+            // Merge or replace tasks
+            tasks = importTasks;  // Replace exisiting tasks
+            saveTasks();
+            renderTasks();
+            alert("Tasks imported successfully!");
+        } catch (err) {
+            alert("Error importing tasks: " + err.message);
+        }
+    };
+    reader.readAsText(file);
 };
 
 /* Contact Form */
