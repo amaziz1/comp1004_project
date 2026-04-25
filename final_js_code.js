@@ -1,10 +1,11 @@
 /* ===================== SPA Navigation ===================== */
 const sections = document.querySelectorAll(".spa-section");
-document.querySelectorAll("nav a").forEach(link => {
-    link.onclick = e => {
+document.querySelectorAll("nav button.nav-button").forEach(button => {
+    button.onclick = e => {
         e.preventDefault();
         sections.forEach(s => s.classList.add("hidden"));
-        document.getElementById(link.getAttribute("href").substring(1)).classList.remove("hidden");
+        const targetSectionId = button.getAttribute("data-target").substring(1);
+        document.getElementById(targetSectionId).classList.remove("hidden");
         window.scrollTo(0,0);
     };
 });
@@ -47,8 +48,8 @@ const taskInput = document.getElementById("taskInput");
 const taskDate = document.getElementById("taskDate");
 const taskCategory = document.getElementById("taskCategory");
 const taskPriority = document.getElementById("taskPriority");
-const taskProject = document.getElementById("taskProject"); // NEW
-const taskRecurrence = document.getElementById("taskRecurrence"); // NEW
+const taskProject = document.getElementById("taskProject");
+const taskRecurrence = document.getElementById("taskRecurrence");
 const taskList = document.getElementById("taskList");
 const progressBar = document.getElementById("progressBar");
 const taskSearch = document.getElementById("taskSearch");
