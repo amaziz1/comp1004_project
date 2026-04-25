@@ -5,11 +5,12 @@
     --accent: #0077ff;
     --card-bg: #f0f0f0;
     --border: #ccc;
-
     --dark-bg: #121212;
     --dark-text: #eee;
     --dark-card: #1e1e1e;
     --dark-border: #444;
+    --reminder-bg: #fffae6;
+    --reminder-border: #ffd700;
 }
 
 /* General Styles */
@@ -29,7 +30,7 @@ main {
     padding: 20px;
 }
 
-section { 
+section {
     margin-bottom: 30px;
 }
 
@@ -60,27 +61,27 @@ nav {
     transition: background 0.3s;
 }
 
-nav ul { 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-}
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
 
-nav button {
-    background-color: var(--accent);
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+    nav button {
+        background-color: var(--accent);
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-nav button:hover {
-    background-color: #005fa3;
-}
+        nav button:hover {
+            background-color: #005fa3;
+        }
 
 /* Center Task Filters and JSON Export Button
 #task-filters,
@@ -95,7 +96,6 @@ nav button:hover {
 #exportJSON {
     margin: 5px;
 }
-
 */
 
 /* Task Search Input */
@@ -107,6 +107,18 @@ nav button:hover {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
+}
+
+/* Task Form Inputs (Project & Recurrence) */
+#taskProject,
+#taskRecurrence {
+    margin: 8px 0;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* Progress Tracker */
@@ -131,12 +143,36 @@ nav button:hover {
 li.low {
     border-left: 5px solid green;
 }
+
 li.medium {
     border-left: 5px solid orange;
 }
+
 li.high {
     border-left: 5px solid red;
 }
+
+/* Reminder Highlight */
+li.reminder {
+    background-color: var(--reminder-bg);
+    border: 2px solid var(--reminder-border);
+}
+
+/* CSV Export Button */
+#exportCSV {
+    margin-left: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    #exportCSV:hover {
+        background-color: #218838;
+    }
 
 /* Contact Form */
 form {
@@ -146,29 +182,29 @@ form {
     margin: 0 auto;
 }
 
-form input {
-    margin: 8px 0;
-    padding: 10px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 16px;
-}
+    form input, form select, form textarea {
+        margin: 8px 0;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 16px;
+    }
 
-form button {
-    padding: 10px;
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-}
+    form button {
+        padding: 10px;
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-form button:hover {
-    background-color: #005fa3;
-}
+        form button:hover {
+            background-color: #005fa3;
+        }
 
-/* Footer Styles (Centered and at the bottom) */
+/* Footer Styles */
 footer {
     background: var(--card-bg);
     color: var(--text);
@@ -197,32 +233,36 @@ body.dark-mode {
     color: var(--dark-text);
 }
 
-body.dark-mode nav {
-    background: var(--dark-card);
-    border-color: var(--dark-border);
-}
+    body.dark-mode nav {
+        background: var(--dark-card);
+        border-color: var(--dark-border);
+    }
 
-body.dark-mode li {
-    background: var(--dark-card);
-    border-color: var(--dark-border);
-}
+    body.dark-mode li {
+        background: var(--dark-card);
+        border-color: var(--dark-border);
+    }
 
-body.dark-mode footer {
-    background: var(--dark-card);
-    color: var(--dark-text);
-}
+    body.dark-mode footer {
+        background: var(--dark-card);
+        color: var(--dark-text);
+    }
 
-body.dark-mode form input,
-body.dark-mode form button {
-    background-color: #333;
-    color: var(--dark-text);
-    border: 1px solid var(--dark-border);
-}
+    body.dark-mode form input,
+    body.dark-mode form button,
+    body.dark-mode form select,
+    body.dark-mode form textarea {
+        background-color: #333;
+        color: var(--dark-text);
+        border: 1px solid var(--dark-border);
+    }
 
-body.dark-mode form input:focus,
-body.dark-mode form button:focus {
-    border-color: var(--accent);
-}
+        body.dark-mode form input:focus,
+        body.dark-mode form button:focus,
+        body.dark-mode form select:focus,
+        body.dark-mode form textarea:focus {
+            border-color: var(--accent);
+        }
 
 /* Boxed Content for Facts and Testimonials */
 .fact-container,
@@ -253,9 +293,9 @@ body.dark-mode .testimonial-card p {
     color: var(--dark-text);
 }
 
-/*Spacing between each fact/testimonial*/
+/* Spacing between each fact/testimonial */
 .fact-container + .fact-container,
-.testimonial-card + .testimonial-card { 
+.testimonial-card + .testimonial-card {
     margin-top: 20px;
 }
 
