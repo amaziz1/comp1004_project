@@ -1,4 +1,4 @@
-/* Global Variables */
+/* ===================== Global Variables ===================== */
 :root {
     --bg: #fff;
     --text: #222;
@@ -9,19 +9,24 @@
     --dark-text: #eee;
     --dark-card: #1e1e1e;
     --dark-border: #444;
-    --inverted-bg: #fff;
-    --inverted-text: #000;
-    --inverted-card-bg: #333;
-    --inverted-border: #aaa;
+    --reminder-bg: #fffae6;
+    --reminder-border: #ffd700;
+    --overdue-bg: #ffe6e6;
+    --overdue-border: darkred;
+    --transition-speed: 0.3s;
 }
 
-/* General Styles */
+/* ===================== General Styles ===================== */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-    transition: background 0.3s, color 0.3s;
+    transition: background var(--transition-speed), color var(--transition-speed);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -30,15 +35,16 @@ body {
 main {
     flex: 1;
     padding: 20px;
-}
-
-section {
-    margin-bottom: 30px;
+    padding-bottom: 80px;
 }
 
 h1, h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
+}
+
+section {
+    margin-bottom: 30px;
 }
 
 ul {
@@ -52,54 +58,227 @@ li {
     border: 1px solid var(--border);
     border-radius: 6px;
     margin-bottom: 10px;
-    transition: background 0.3s, color 0.3s;
+    transition: background var(--transition-speed), border var(--transition-speed);
 }
 
-/* Navigation Bar Styles */
+    /* ===================== Overdue Tasks ===================== */
+    li.overdue {
+        border-left: 5px solid var(--overdue-border);
+        background-color: var(--overdue-bg);
+    }
+
+body.dark-mode li.overdue {
+    background-color: #550000;
+}
+
+/* ===================== Collapsible Project Container ===================== */
+.project-tasks.hidden {
+    display: none;
+}
+
+h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+/* ===================== Navigation Bar ===================== */
 nav {
     background: var(--card-bg);
     padding: 10px 0;
     border-bottom: 2px solid var(--border);
-    transition: background 0.3s;
+    transition: background var(--transition-speed);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
     nav ul {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
         margin: 0;
+        padding: 0;
     }
 
     nav button {
-        background-color: var(--accent);
-        color: white;
+        background-color: transparent;
+        color: var(--text);
         padding: 8px 15px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
+        transition: background var(--transition-speed), color var(--transition-speed);
     }
 
         nav button:hover {
-            background-color: #005fa3;
+            background-color: var(--accent);
+            color: #fff;
         }
 
-/* Task Filters and Buttons */
-#task-filters,
-#task-manager {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.nav-button {
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-    #task-filters button,
-    #exportJSON {
-        margin: 5px;
+/* ===================== Task Inputs ===================== */
+.task-search,
+#taskProject,
+#taskRecurrence,
+form input,
+form select,
+form textarea {
+    margin: 8px 0;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    transition: border-color var(--transition-speed), background var(--transition-speed), color var(--transition-speed);
+}
+
+.task-search {
+    display: block;
+}
+
+/* ===================== Buttons ===================== */
+form button,
+#exportCSV,
+#exportJSON,
+#importJSONBtn {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background var(--transition-speed);
+}
+
+#exportCSV {
+    background-color: #28a745;
+    color: #fff;
+}
+
+    #exportCSV:hover {
+        background-color: #218838;
     }
 
-/* Contact Form */
+form button,
+#exportJSON,
+#importJSONBtn {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+    form button:hover,
+    #exportJSON:hover,
+    #importJSONBtn:hover {
+        background-color: #005fa3;
+    }
+
+/* ===================== Task Manager Layout ===================== */
+.task-container,
+#task-manager {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.progress-tracker {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 400px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--accent);
+    transition: width var(--transition-speed);
+}
+
+#progressLabel {
+    font-size: 0.9rem;
+    color: gray;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+/* ===================== Task Manager Filter Buttons ===================== */
+#task-filters button {
+    padding: 5px 10px;
+    margin: 2px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+    #task-filters button:hover {
+        background-color: var(--accent);
+        color: #fff;
+    }
+
+    #task-filters button.active {
+        background-color: var(--accent);
+        color: #fff;
+        border-color: #005fa3;
+        box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    }
+
+/* Slight spacing between filters and search input */
+#task-filters {
+    margin-bottom: 8px;
+}
+
+/* Spacing for progress label and bar */
+#progressLabel {
+    margin-bottom: 6px;
+}
+
+/* Subtle color differences for overdue/reminder tasks */
+li.overdue {
+    background-color: #ffe6e6; /* slightly pink/red */
+}
+
+li.reminder {
+    background-color: #fff8e6; /* slightly yellow */
+}
+
+/* Add spacing for task list items for readability */
+#taskList li {
+    padding: 12px;
+    margin-bottom: 8px;
+}
+
+/* ===================== Task Priority Colors ===================== */
+li.low {
+    border-left: 5px solid green;
+}
+
+li.medium {
+    border-left: 5px solid orange;
+}
+
+li.high {
+    border-left: 5px solid red;
+}
+
+/* ===================== Reminder Highlight ===================== */
+li.reminder {
+    background-color: var(--reminder-bg);
+    border: 2px solid var(--reminder-border);
+}
+
+/* ===================== Contact Form ===================== */
 form {
     display: flex;
     flex-direction: column;
@@ -107,40 +286,69 @@ form {
     margin: 0 auto;
 }
 
-    form input,
-    form select,
-    form button {
-        margin: 8px 0;
-        padding: 10px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-size: 16px;
-    }
+#wordCounter {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
 
-    form button {
-        background-color: var(--accent);
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-    }
+#msgHint {
+    font-size: 0.8rem;
+    color: gray;
+    margin-bottom: 10px;
+}
 
-        form button:hover {
-            background-color: #005fa3;
-        }
+#thankYouMessage {
+    display: none;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    text-align: center;
+    transition: opacity var(--transition-speed);
+}
 
-/* Footer Styles (Centered and at the bottom) */
+/* ===================== Footer ===================== */
 footer {
+    position: relative;
+    width: 100%;
     background: var(--card-bg);
     color: var(--text);
     padding: 10px 0;
     text-align: center;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark Mode Styles */
+/* ===================== Fact/Testimonial Cards ===================== */
+.fact-container,
+.testimonial-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+body.dark-mode .fact-container,
+body.dark-mode .testimonial-card {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+.fact-container p,
+.testimonial-card p {
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+body.dark-mode .fact-container p,
+body.dark-mode .testimonial-card p {
+    color: var(--dark-text);
+}
+
+/* ===================== Dark Mode ===================== */
 body.dark-mode {
     background: var(--dark-bg);
     color: var(--dark-text);
@@ -150,6 +358,10 @@ body.dark-mode {
         background: var(--dark-card);
         border-color: var(--dark-border);
     }
+
+        body.dark-mode nav button {
+            color: var(--dark-text);
+        }
 
     body.dark-mode li {
         background: var(--dark-card);
@@ -162,131 +374,45 @@ body.dark-mode {
     }
 
     body.dark-mode form input,
-    body.dark-mode form button {
+    body.dark-mode form select,
+    body.dark-mode form textarea,
+    body.dark-mode form button,
+    body.dark-mode .task-search {
         background-color: #333;
         color: var(--dark-text);
         border: 1px solid var(--dark-border);
     }
 
         body.dark-mode form input:focus,
+        body.dark-mode form select:focus,
+        body.dark-mode form textarea:focus,
         body.dark-mode form button:focus {
             border-color: var(--accent);
         }
 
-/* Inverted Colour Mode */
-body.inverted-colour {
-    background: var(--inverted-bg);
-    color: var(--inverted-text);
-}
-
-    body.inverted-colour nav {
-        background: var(--inverted-card-bg);
-        border-color: var(--inverted-border);
-    }
-
-    body.inverted-colour li {
-        background: var(--inverted-card-bg);
-        border-color: var(--inverted-border);
-    }
-
-    body.inverted-colour footer {
-        background: var(--inverted-card-bg);
-        color: var(--inverted-text);
-    }
-
-    body.inverted-colour form input,
-    body.inverted-colour form button {
-        background-color: var(--inverted-card-bg);
-        color: var(--inverted-text);
-        border: 1px solid var(--inverted-border);
-    }
-
-        body.inverted-colour form input:focus,
-        body.inverted-colour form button:focus {
-            border-color: var(--accent);
-        }
-
-/* Boxed Content for Facts and Testimonials */
-.fact-container,
-.testimonial-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-body.dark-mode .fact-container,
-body.dark-mode .testimonial-card,
-body.inverted-colour .fact-container,
-body.inverted-colour .testimonial-card {
-    background: var(--dark-card);
-    border-color: var(--dark-border);
-}
-
-.fact-container p,
-.testimonial-card p {
-    font-size: 1.2rem;
-    color: var(--text);
-}
-
-body.dark-mode .fact-container p,
-body.dark-mode .testimonial-card p,
-body.inverted-colour .fact-container p,
-body.inverted-colour .testimonial-card p {
-    color: var(--dark-text);
-}
-
-/* Spacing between each fact/testimonial */
-.fact-container + .fact-container,
-.testimonial-card + .testimonial-card {
-    margin-top: 20px;
-}
-
-/* Smooth Transitions for Dark Mode and Inverted Mode */
+/* ===================== Transitions ===================== */
 body, nav, li, footer, #thankYou {
-    transition: background 0.3s, color 0.3s;
+    transition: background var(--transition-speed), color var(--transition-speed);
 }
 
-/* Hide Elements (used for the Thank You Message) */
+/* ===================== Hidden Elements ===================== */
 .hidden {
     display: none;
 }
 
-/* Gamification (Progress Bars for Task Completion and Streaks) */
-.task-completion {
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    height: 20px;
-    width: 100%;
-}
-
-    .task-completion .progress {
-        background-color: #4CAF50;
-        height: 100%;
-        width: 0;
-        transition: width 0.3s;
+/* ===================== Responsive Design ===================== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
     }
 
-.streak {
-    font-size: 1.2rem;
-    color: var(--accent);
-    font-weight: bold;
-}
-
-/* Notification Banners */
-.notification {
-    background-color: #ff9800;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: none;
-}
-
-    .notification.active {
-        display: block;
+    .task-container, #task-manager, form {
+        width: 90%;
+        padding: 0 10px;
     }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+}
