@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPA Prototype</title>
-    <link rel="stylesheet" href="styleso_final.css">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="final_css_code_1.css">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 
 <!-- Home Section -->
 <section id="home" class="spa-section">
-    <h1>Welcome to the SPA Prototype</h1>
+    <h1>Welcome to the SPA Project: TaskFlow</h1>
     <p>This is an interactive Single Page Application (SPA) to manage your daily tasks with dynamic content and smooth navigation.</p>
 </section>
 
@@ -60,15 +60,15 @@
     <h2>Testimonials</h2>
     <div class="testimonial-card">
         <p class="testimonial-text">"This task manager has transformed the way I work. Highly recommended!"</p>
-        <h4 class="testimonial-author">- Person A, Project Manager</h4>
+        <h4 class="testimonial-author">- Sophia Martinez, Product Designer</h4>
     </div>
     <div class="testimonial-card">
         <p class="testimonial-text">"I love the simplicity and effectiveness of this SPA. Makes managing tasks so much easier!"</p>
-        <h4 class="testimonial-author">- Person B, Project Manager</h4>
+        <h4 class="testimonial-author">- Liam Patel, Software Engineer</h4>
     </div>
     <div class="testimonial-card">
         <p class="testimonial-text">"A clean and responsive interface with amazing task management features. Very impressed!"</p>
-        <h4 class="testimonial-author">- Person C, Project Manager</h4>
+        <h4 class="testimonial-author">- Olivia Chen, Marketing Coordinator</h4>
     </div>
 </section>
 
@@ -86,6 +86,9 @@
         <button data-category="urgent">Urgent</button>
     </div>
 
+    <!-- Task Search -->
+    <input type="text" id="taskSearch" placeholder="Search tasks...">
+
     <!-- Task Form -->
     <form id="taskForm">
         <input id="taskInput" placeholder="New Task" required>
@@ -95,14 +98,29 @@
             <option value="personal">Personal</option>
             <option value="urgent">Urgent</option>
         </select>
+        <!-- Priority Selector -->
+        <select id="taskPriority">
+            <option value="low">Low ⬇️</option>
+            <option value="medium">Medium ⚡</option>
+            <option value="high">High 🔥</option>
+        </select>
         <button type="submit">Add Task</button>
     </form>
+
+    <!-- Progress Tracker -->
+    <div id="progressTracker" class="progress-tracker">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
 
     <!-- Task List -->
     <ul id="taskList"></ul>
 
-    <!-- JSON Export -->
-    <button id="exportJSON">Export Tasks to JSON</button>
+    <!-- JSON Export and Import -->
+    <div id="json-buttons">
+        <button id="exportJSON">Export Tasks to JSON</button>
+        <input type="file" id="importJSON" accept=".json" style="display:none;">
+        <button id="importJSONBtn">Import Tasks from JSON</button>
+    </div>
 </section>
 
 <!-- Contact Section -->
@@ -122,9 +140,9 @@
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2025 SPA Prototype Project | Designed by Anas Aziz</p>
+    <p>&copy; 2025 SPA Project | Designed by Anas Aziz</p>
 </footer>
 
-<script src="scripto_final.js"></script>
+<script src="final_js_code_1.js"></script>
 </body>
 </html>
