@@ -4,7 +4,7 @@ document.querySelectorAll("nav button.nav-button").forEach(button => {
     button.onclick = e => {
         e.preventDefault();
         sections.forEach(s => s.classList.add("hidden"));
-        const targetSectionId = button.getAttribute("data-target").substring(1);
+        const targetSectionId = button.dataset.target.substring(1);
         document.getElementById(targetSectionId).classList.remove("hidden");
         window.scrollTo(0,0);
     };
@@ -81,13 +81,13 @@ function renderTasks() {
 
     const now = new Date();
 
-    filteredTasks.forEach((task, idx) => {
+    filteredTasks.forEach((task) => {
         const li = document.createElement("li");
         li.classList.add(task.priority);
 
         // Reminder Highlight if due within 1 day
         const taskDue = new Date(task.date);
-        if(!task.completed && (taskDue - now) / (1000*60*60) <= 24) {
+        if(!task.completed && taskDue > now && (taskDue - now) <= 86400000 ) {
             li.classList.add("reminder");
         }
 
@@ -100,14 +100,40 @@ function renderTasks() {
 
         // Complete Toggle
         li.querySelector(".complete").onclick = () => {
-            task.completed = !task.completed;
+            
+            if (!task.completed) {
+                task.completed = true;
+
+                if (task.recurrence === "daily" || task.recurrence === "weekly") {
+                    const nextDate = new Date(task.date);
+
+                    if (task.recurrence === "daily") {
+                        nextDate.setDate(nextDate.getDate() + 1);
+                    } else if (task.recurrence === "weekly") {
+                        nextDate.setDate(nextDate.getDate() + 7);
+                    }
+
+                    const newTask = {
+                        ...task,
+                        date: nextDate.toISOString().split("T")[0],
+                        completed:false,
+                        timeElapsed: 0
+                    };
+
+                    tasks.push(newTask);
+                }
+            } else {
+                task.completed = false;
+            }
+
             saveTasks();
             renderTasks();
         };
 
         // Delete Task
         li.querySelector(".delete").onclick = () => {
-            tasks.splice(idx, 1);
+            const originalIndex = tasks.indexOf(task);
+            tasks.splice(originalIndex, 1);
             saveTasks();
             renderTasks();
         };
@@ -152,18 +178,7 @@ taskForm.onsubmit = e => {
         timeElapsed: 0
     };
 
-    tasks.push(newTask);
-
-    // Handle Recurring Tasks
-    if(newTask.recurrence === "daily") {
-        const nextDay = new Date(taskDate.value);
-        nextDay.setDate(nextDay.getDate() + 1);
-        tasks.push({...newTask, date: nextDay.toISOString().split("T")[0]});
-    } else if(newTask.recurrence === "weekly") {
-        const nextWeek = new Date(taskDate.value);
-        nextWeek.setDate(nextWeek.getDate() + 7);
-        tasks.push({...newTask, date: nextWeek.toISOString().split("T")[0]});
-    }
+    tasks.push(newTask);    
 
     saveTasks();
     renderTasks();
@@ -229,7 +244,15 @@ exportCSVBtn.onclick = () => {
     if(tasks.length === 0) return alert("No tasks to export.");
     const csvRows = [["Text","Date","Category","Priority","Project","Completed","TimeElapsed"]];
     tasks.forEach(t => {
-        csvRows.push([t.text,t.date,t.category,t.priority,t.project || "",t.completed,t.timeElapsed || 0]);
+        csvRows.push([
+            `"${t.text}"`,
+            t.date,
+            t.category,
+            t.priority,
+            `"${t.project || ""}"`,
+            t.completed,
+            t.timeElapsed || 0
+        ]);
     });
     const csvContent = "data:text/csv;charset=utf-8," + csvRows.map(r => r.join(",")).join("\n");
     const encodedUri = encodeURI(csvContent);
@@ -260,8 +283,8 @@ contactForm.onsubmit = e => {
     const email = emailInput.value.trim();
     const words = msg.value.trim().split(/\s+/).filter(Boolean).length;
 
-    if (!/^[A-Za-z]+ [A-Za-z]+$/.test(name)) return alert("Please enter your full name.");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return alert("Invalid email.");
+    if (!/^[A-Za-z]{2,}( [A-Za-z]{2,})+$/.test(name)) return alert("Please enter your full name.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return alert("Invalid email.");
     if (words > 250) return alert("Message exceeds the 250-word limit.");
 
     contactForm.classList.add("hidden");
