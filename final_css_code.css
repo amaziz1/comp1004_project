@@ -1,4 +1,4 @@
-/* Global Variables */
+/* ===================== Global Variables ===================== */
 :root {
     --bg: #fff;
     --text: #222;
@@ -11,15 +11,20 @@
     --dark-border: #444;
     --reminder-bg: #fffae6;
     --reminder-border: #ffd700;
+    --transition-speed: 0.3s;
 }
 
-/* General Styles */
+/* ===================== General Styles ===================== */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-    transition: background 0.3s, color 0.3s;
+    transition: background var(--transition-speed), color var(--transition-speed);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -31,13 +36,13 @@ main {
     padding-bottom: 80px;
 }
 
-section {
-    margin-bottom: 30px;
-}
-
 h1, h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
+}
+
+section {
+    margin-bottom: 30px;
 }
 
 ul {
@@ -51,58 +56,57 @@ li {
     border: 1px solid var(--border);
     border-radius: 6px;
     margin-bottom: 10px;
-    transition: background 0.3s;
+    transition: background var(--transition-speed);
 }
 
-/* Navigation Bar Styles */
+/* ===================== Navigation Bar ===================== */
 nav {
     background: var(--card-bg);
     padding: 10px 0;
     border-bottom: 2px solid var(--border);
-    transition: background 0.3s;
+    transition: background var(--transition-speed);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+    }
 
-nav button {
-    background-color: transparent;
-    color: var(--text);
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+    nav button {
+        background-color: transparent;
+        color: var(--text);
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background var(--transition-speed), color var(--transition-speed);
+    }
 
-nav button:hover {
-    background-color: var(--accent);
-    color: white;
-}
+        nav button:hover {
+            background-color: var(--accent);
+            color: #fff;
+        }
 
 .nav-button {
     font-weight: bold;
     text-transform: uppercase;
 }
 
-/* Task Search Input */
-.task-search {
-    margin: 10px;
-    padding: 8px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-/* Task Form Inputs (Project & Recurrence) */
+/* ===================== Task Inputs ===================== */
+.task-search,
 #taskProject,
-#taskRecurrence {
+#taskRecurrence,
+form input,
+form select,
+form textarea {
     margin: 8px 0;
     padding: 10px;
     border: 1px solid var(--border);
@@ -110,12 +114,58 @@ nav button:hover {
     font-size: 16px;
     width: 100%;
     max-width: 400px;
+    transition: border-color var(--transition-speed), background var(--transition-speed), color var(--transition-speed);
 }
 
-/* Progress Tracker */
+.task-search {
+    display: block;
+}
+
+/* ===================== Buttons ===================== */
+form button,
+#exportCSV,
+#exportJSON,
+#importJSONBtn {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background var(--transition-speed);
+}
+
+#exportCSV {
+    background-color: #28a745;
+    color: #fff;
+}
+
+    #exportCSV:hover {
+        background-color: #218838;
+    }
+
+form button,
+#exportJSON,
+#importJSONBtn {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+    form button:hover,
+    #exportJSON:hover,
+    #importJSONBtn:hover {
+        background-color: #005fa3;
+    }
+
+/* ===================== Task Manager Layout ===================== */
+.task-container,
+#task-manager {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .progress-tracker {
     margin: 10px 0;
-    width: 80%;
+    width: 100%;
     max-width: 400px;
     height: 20px;
     border: 1px solid #ccc;
@@ -127,16 +177,10 @@ nav button:hover {
     height: 100%;
     width: 0%;
     background-color: var(--accent);
-    transition: width 0.3s;
+    transition: width var(--transition-speed);
 }
 
-/*Task Manager Layout*/
-.task-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Task Priority Colors */
+/* ===================== Task Priority Colors ===================== */
 li.low {
     border-left: 5px solid green;
 }
@@ -149,29 +193,13 @@ li.high {
     border-left: 5px solid red;
 }
 
-/* Reminder Highlight */
+/* ===================== Reminder Highlight ===================== */
 li.reminder {
     background-color: var(--reminder-bg);
     border: 2px solid var(--reminder-border);
 }
 
-/* CSV Export Button */
-#exportCSV {
-    margin-left: 5px;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#exportCSV:hover {
-    background-color: #218838;
-}
-
-/* Contact Form */
+/* ===================== Contact Form ===================== */
 form {
     display: flex;
     flex-direction: column;
@@ -179,29 +207,24 @@ form {
     margin: 0 auto;
 }
 
-form input, form select, form textarea {
-    margin: 8px 0;
+#wordCounter {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+#thankYouMessage {
+    display: none;
+    background-color: #4CAF50;
+    color: #fff;
     padding: 10px;
-    border: 1px solid var(--border);
     border-radius: 6px;
-    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+    transition: opacity var(--transition-speed);
 }
 
-form button {
-    padding: 10px;
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-form button:hover {
-    background-color: #005fa3;
-}
-
-/* Footer Styles */
+/* ===================== Footer ===================== */
 footer {
     position: relative;
     width: 100%;
@@ -211,71 +234,7 @@ footer {
     text-align: center;
 }
 
-/* Thank You Message */
-#thankYou {
-    display: none;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
-    margin-top: 15px;
-    text-align: center;
-    transition: opacity 0.3s;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-    background: var(--dark-bg);
-    color: var(--dark-text);
-}
-
-body.dark-mode nav {
-    background: var(--dark-card);
-    border-color: var(--dark-border);
-}
-
-body.dark-mode nav button {
-    color: var(--dark-text);
-}
-
-body.dark-mode nav button:hover {
-    background-color: var(--accent);
-    color: white;
-}
-
-body.dark-mode li {
-    background: var(--dark-card);
-    border-color: var(--dark-border);
-}
-
-body.dark-mode footer {
-    background: var(--dark-card);
-    color: var(--dark-text);
-}
-
-body.dark-mode form input,
-body.dark-mode form button,
-body.dark-mode form select,
-body.dark-mode form textarea {
-    background-color: #333;
-    color: var(--dark-text);
-    border: 1px solid var(--dark-border);
-}
-
-body.dark-mode form input:focus,
-body.dark-mode form button:focus,
-body.dark-mode form select:focus,
-body.dark-mode form textarea:focus {
-    border-color: var(--accent);
-}
-
-body.dark-mode .task-search {
-    background-color: #333;
-    color: var(--dark-text);
-    border: 1px solid var(--dark-border);
-}
-
-/* Boxed Content for Facts and Testimonials */
+/* ===================== Fact/Testimonial Cards ===================== */
 .fact-container,
 .testimonial-card {
     background: var(--card-bg);
@@ -284,7 +243,7 @@ body.dark-mode .task-search {
     padding: 15px;
     margin: 10px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
 body.dark-mode .fact-container,
@@ -304,18 +263,71 @@ body.dark-mode .testimonial-card p {
     color: var(--dark-text);
 }
 
-/* Spacing between each fact/testimonial */
-.fact-container + .fact-container,
-.testimonial-card + .testimonial-card {
-    margin-top: 20px;
+/* ===================== Dark Mode ===================== */
+body.dark-mode {
+    background: var(--dark-bg);
+    color: var(--dark-text);
 }
 
-/* Smooth Transitions for Dark Mode */
+    body.dark-mode nav {
+        background: var(--dark-card);
+        border-color: var(--dark-border);
+    }
+
+        body.dark-mode nav button {
+            color: var(--dark-text);
+        }
+
+    body.dark-mode li {
+        background: var(--dark-card);
+        border-color: var(--dark-border);
+    }
+
+    body.dark-mode footer {
+        background: var(--dark-card);
+        color: var(--dark-text);
+    }
+
+    body.dark-mode form input,
+    body.dark-mode form select,
+    body.dark-mode form textarea,
+    body.dark-mode form button,
+    body.dark-mode .task-search {
+        background-color: #333;
+        color: var(--dark-text);
+        border: 1px solid var(--dark-border);
+    }
+
+        body.dark-mode form input:focus,
+        body.dark-mode form select:focus,
+        body.dark-mode form textarea:focus,
+        body.dark-mode form button:focus {
+            border-color: var(--accent);
+        }
+
+/* ===================== Transitions ===================== */
 body, nav, li, footer, #thankYou {
-    transition: background 0.3s, color 0.3s;
+    transition: background var(--transition-speed), color var(--transition-speed);
 }
 
-/* Hide Elements (used for the Thank You Message) */
+/* ===================== Hidden Elements ===================== */
 .hidden {
     display: none;
+}
+
+/* ===================== Responsive Design ===================== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .task-container, #task-manager, form {
+        width: 90%;
+        padding: 0 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
 }
