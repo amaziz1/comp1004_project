@@ -74,8 +74,6 @@ TaskFlow was developed using an Agile-inspired iterative approach:
 
 ---
 
----
-
 ## Commit History Note
 Due to GitHub tracking progress through commits, historical versions of the TaskFlow project were committed sequentially on the same day. These commits represent prior development work completed over multiple weeks. Each commit includes incremental updates to HTML, CSS, and JavaScript files, reflecting the evolution of the application’s features and styling.
 
