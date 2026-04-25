@@ -3,145 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPA Prototype</title>
-    <link rel="stylesheet" href="final_css_code_6.css">
+    <title>TaskFlow SPA</title>
+    <link rel="stylesheet" href="final_css_code_7.css">
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav>
         <ul>
-            <!-- Dark/Light Mode Toggle -->
-            <li><button id="themeToggle">🌙 Dark Mode</button></li>
-
-            <!-- Inverted Colour Mode Toggle -->
-            <li><button id="invertedToggle">🔲 Inverted Colour</button></li>
-
-            <!-- Links for each section -->
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#facts">Facts</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#task-manager">Task Manager</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>
+                <button id="themeToggle" aria-label="Toggle dark/light mode">🌙 Dark Mode</button>
+            </li>
+            <li><button class="nav-button" data-target="#home">Home</button></li>
+            <li><button class="nav-button" data-target="#about">About</button></li>
+            <li><button class="nav-button" data-target="#features">Features</button></li>
+            <li><button class="nav-button" data-target="#facts">Facts</button></li>
+            <li><button class="nav-button" data-target="#testimonials">Testimonials</button></li>
+            <li><button class="nav-button" data-target="#task-manager">Task Manager</button></li>
+            <li><button class="nav-button" data-target="#contact">Contact</button></li>
         </ul>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="spa-section">
-        <h1>Welcome to the SPA Prototype</h1>
-        <p>This is an interactive Single Page Application (SPA) to manage your daily tasks with dynamic content and smooth navigation.</p>
-    </section>
+    <main>
 
-    <!-- About Section -->
-    <section id="about" class="spa-section hidden">
-        <h2>About This Project</h2>
-        <p>This SPA was developed as a project for the COMP1004 course. It demonstrates dynamic content loading, task management, and an interactive interface with dark/light mode, inverted colour mode, and gamification features.</p>
-    </section>
+        <!-- Home Section -->
+        <section id="home" class="spa-section">
+            <h1>Welcome to the SPA Project: TaskFlow</h1>
+            <p>This is an interactive Single Page Application (SPA) to manage your daily tasks with dynamic content and smooth navigation.</p>
+        </section>
 
-    <!-- Features Section -->
-    <section id="features" class="spa-section hidden">
-        <h2>Features</h2>
-        <ul>
-            <li>Interactive Task Management</li>
-            <li>Dark/Light Mode Toggle</li>
-            <li>Inverted Colour Mode</li>
-            <li>Prioritization and Deadlines</li>
-            <li>Task Categories/Tags</li>
-            <li>Collaboration (Coming Soon)</li>
-            <li>Reminders and Notifications</li>
-            <li>Gamification (Badges and Streaks)</li>
-        </ul>
-    </section>
+        <!-- About Section -->
+        <section id="about" class="spa-section hidden">
+            <h2>About This Project</h2>
+            <p>This SPA was developed as a project for the COMP1004 course. It demonstrates dynamic content loading, a task manager, and an interactive interface with dark/light mode.</p>
+        </section>
 
-    <!-- Facts Section -->
-    <section id="facts" class="spa-section hidden">
-        <div class="fact-container">
-            <p id="fact-text"></p>
-            <button class="next-fact">Next Fact</button>
-        </div>
-        <div id="fact-counter"></div>
-    </section>
+        <!-- Features Section -->
+        <section id="features" class="spa-section hidden">
+            <h2>Features</h2>
+            <ul>
+                <li>Interactive Task Management</li>
+                <li>Dynamic Dark Mode Toggle</li>
+                <li>JSON / CSV Import/Export for tasks</li>
+                <li>Smooth Navigation</li>
+                <li>Task Prioritization and Progress Tracker</li>
+                <li>Task Reminders</li>
+                <li>Multiple Lists / Projects Support</li>
+                <li>Recurring Tasks</li>
+                <li>Task Time Tracking</li>
+            </ul>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="spa-section hidden">
-        <h2>Testimonials</h2>
-        <div class="testimonial-card">
-            <p class="testimonial-text">"This task manager has transformed the way I work. Highly recommended!"</p>
-            <h4 class="testimonial-author">- Person A, Project Manager</h4>
-        </div>
-        <div class="testimonial-card">
-            <p class="testimonial-text">"I love the simplicity and effectiveness of this SPA. Makes managing tasks so much easier!"</p>
-            <h4 class="testimonial-author">- Person B, Project Manager</h4>
-        </div>
-        <div class="testimonial-card">
-            <p class="testimonial-text">"A clean and responsive interface with amazing task management features. Very impressed!"</p>
-            <h4 class="testimonial-author">- Person C, Project Manager</h4>
-        </div>
-    </section>
+        <!-- Facts Section -->
+        <section id="facts" class="spa-section hidden">
+            <div class="fact-container" aria-live="polite">
+                <p id="fact-text"></p>
+                <button class="next-fact" aria-label="Next fact">Next Fact</button>
+            </div>
+            <div id="fact-counter"></div>
+        </section>
 
-    <!-- Task Manager Section -->
-    <section id="task-manager" class="spa-section hidden">
-        <h2>Task Manager</h2>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="spa-section hidden">
+            <h2>Testimonials</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"This task manager has transformed the way I work. Highly recommended!"</p>
+                <h4 class="testimonial-author">- Sophia Martinez, Product Designer</h4>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I love the simplicity and effectiveness of this SPA. Makes managing tasks so much easier!"</p>
+                <h4 class="testimonial-author">- Liam Patel, Software Engineer</h4>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"A clean and responsive interface with amazing task management features. Very impressed!"</p>
+                <h4 class="testimonial-author">- Olivia Chen, Marketing Coordinator</h4>
+            </div>
+        </section>
 
-        <!-- Filters Section (Active, Completed, All, Category) -->
-        <div id="task-filters">
-            <button data-filter="all" class="active">All Tasks</button>
-            <button data-filter="active">Active</button>
-            <button data-filter="completed">Completed</button>
-            <button data-category="work">Work</button>
-            <button data-category="personal">Personal</button>
-            <button data-category="urgent">Urgent</button>
-            <button data-priority="low">Low Priority</button>
-            <button data-priority="medium">Medium Priority</button>
-            <button data-priority="high">High Priority</button>
-        </div>
+        <!-- Task Manager Section -->
+        <section id="task-manager" class="spa-section hidden">
+            <h2>Task Manager</h2>
 
-        <!-- Task Form (with Priority and Deadline) -->
-        <form id="taskForm">
-            <input id="taskInput" placeholder="New Task" required>
-            <input type="date" id="taskDate" required>
-            <select id="taskCategory">
-                <option value="work">Work</option>
-                <option value="personal">Personal</option>
-                <option value="urgent">Urgent</option>
-            </select>
-            <select id="taskPriority">
-                <option value="low">Low Priority</option>
-                <option value="medium">Medium Priority</option>
-                <option value="high">High Priority</option>
-            </select>
-            <button type="submit">Add Task</button>
-        </form>
+            <!-- Filters Guidance -->
+            <div id="filterHint" style="text-align:center; margin-bottom:5px; font-size:0.9rem; color:gray;">
+                Click buttons to filter tasks by status, category, or project
+            </div>
 
-        <!-- Task List -->
-        <ul id="taskList"></ul>
+            <!-- Filters Section -->
+            <div id="task-filters">
+                <button data-filter="all" class="active">All Tasks</button>
+                <button data-filter="active">Active</button>
+                <button data-filter="completed">Completed</button>
+                <button data-category="work">Work</button>
+                <button data-category="personal">Personal</button>
+                <button data-category="urgent">Urgent</button>
+                <button data-project="default">Default Project</button>
+            </div>
 
-        <!-- JSON Export -->
-        <button id="exportJSON">Export Tasks to JSON</button>
-    </section>
+            <!-- Task Search -->
+            <input type="text" id="taskSearch" placeholder="Search tasks..." class="task-search" aria-label="Search tasks">
 
-    <!-- Contact Section -->
-    <section id="contact" class="spa-section hidden">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input id="name" placeholder="Full Name" required>
-            <input id="email" placeholder="Email" required>
-            <textarea id="message" placeholder="Your message..." required></textarea>
-            <div id="wordCounter">0/250</div>
-            <button>Send Message</button>
-        </form>
-        <div id="thankYou" class="hidden">
-            <h3>Thank you for your message!</h3>
-        </div>
-    </section>
+            <!-- Task Form -->
+            <form id="taskForm">
+                <input id="taskInput" placeholder="New Task" required aria-label="Task description">
+                <input type="date" id="taskDate" required aria-label="Task due date">
+                <select id="taskCategory" aria-label="Task category">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+                <select id="taskPriority" aria-label="Task priority">
+                    <option value="low">Low ⬇️</option>
+                    <option value="medium">Medium ⚡</option>
+                    <option value="high">High 🔥</option>
+                </select>
+                <!-- Tooltip for project -->
+                <input id="taskProject" placeholder="Project name (optional, e.g., Work or Personal)" aria-label="Task project" title="Optional: assign a project name for grouping tasks">
+                <!-- Tooltip for recurrence -->
+                <select id="taskRecurrence" aria-label="Task recurrence" title="Choose if this task repeats: Daily or Weekly">
+                    <option value="none">No Recurrence</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+                <button type="submit" id="addTaskBtn" title="Click to add task">Add Task</button>
+            </form>
+
+            <!-- Progress Tracker with dynamic label -->
+            <div id="progressTracker" class="progress-tracker" aria-label="Task completion progress">
+                <div id="progressLabel" style="font-size:0.9rem; color:gray; text-align:center; margin-bottom:3px;">
+                    Tasks Completed: 0/0
+                </div>
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+
+            <!-- Task List -->
+            <ul id="taskList" aria-label="Task list"></ul>
+
+            <!-- JSON and CSV Export / Import with descriptions -->
+            <div id="json-buttons">
+                <div style="margin-bottom:5px; font-size:0.9rem; color:gray;">
+                    Export tasks to JSON/CSV or import previously saved tasks (JSON only)
+                </div>
+                <button id="exportJSON">Export Tasks to JSON</button>
+                <button id="exportCSV">Export Tasks to CSV</button>
+                <input type="file" id="importJSON" accept=".json" style="display:none;">
+                <button id="importJSONBtn">Import Tasks from JSON</button>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="spa-section hidden">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input id="name" placeholder="Full Name" required aria-label="Full name">
+                <input id="email" placeholder="Email" required aria-label="Email">
+                <textarea id="message" placeholder="Your message..." required aria-label="Message"></textarea>
+                <div id="wordCounter">0/250</div>
+                <div id="msgHint" style="font-size:0.8rem; color:gray;">Max 250 words</div>
+                <button>Send Message</button>
+            </form>
+            <div id="thankYou" class="hidden">
+                <h3>Thank you for your message!</h3>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 SPA Prototype Project | Designed by Anas Aziz</p>
+        <p>&copy; 2025 SPA Project | Designed by Anas Aziz</p>
     </footer>
 
-    <script src="final_js_code_6.js"></script>
+    <script src="final_js_code_7.js"></script>
 </body>
 </html>
