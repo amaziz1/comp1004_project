@@ -1,163 +1,83 @@
 # TaskFlow - SPA Task Manager
 
-**Author:** Anas Aziz
-**Repository:** comp1004_project (COMP1004 Coursework)
-**Stand-up Meeting Leader:** Muammad Asad
+**Author:** Anas Aziz  
+**Repository:** comp1004_project (COMP1004 Coursework)  
+**Stand-up Meeting Leader:** Muhammad Asad  
+**GitHub Repository:** [https://github.com/amaziz1/comp1004_project](https://github.com/amaziz1/comp1004_project)
 
-Simplifying task management with a responsive, clutter-free interface.
+A responsive Single Page Application (SPA) designed to manage personal tasks efficiently through a clean, interactive, and accessible interface.
 
 ---
 
-## Overview:
-TaskFlow is a lightweight, Single Page Application (SPA) designed to improve personal productivity through fast, intuitive task management. Users can create, edit, delete, track, and filter tasks, in a browser-based interface, all without the complexity of full-scale productivity platforms.
+## Overview
 
-TaskFlow focuses on simplicity, responsiveness, and accessibility, making it ideal for individuals who want an effective way to organize daily tasks without distractions.
+TaskFlow is a browser-based task management application built using HTML, CSS, and JavaScript. It demonstrates core SPA principles such as dynamic content rendering, state management, and client-side data persistence without requiring page reloads or external frameworks.
+The application focuses on usability, responsiveness, and accessibility while providing enhanced task management features for personal productivity.
 
 ---
 
 ## Project Vision
-TaskFlow aims to provide a streamlined, user-friendly productivity tool that enables:
 
-- Quick creation and management of tasks.
-- Responsive Design for desktop and mobile devices.
-- Data Persistence with localStorage.
-- Accessibility, including full keyboard navigation.
-- Seamless switching between light and dark modes.
-
-By prioritizing simplicity over complex features like team collaboration or reminders, TaskFlow allows users to stay productive without interruptions.
+TaskFlow aims to provide a streamlined, user-friendly productivity tool that enables efficient task management while demonstrating key SPA development principles.
+The project prioritises:
+- Simple and intuitive task organisation
+- Responsive design across devices
+- Persistent local data storage
+- Accessible and inclusive user experience
+- A lightweight SPA architecture without frameworks
 
 ---
 
 ## Core Features
-
-### Task Management & Tracking:
-- Create, edit, and delete tasks with titles and deadlines.
-- Mark tasks as completed, visually differentiating them.
-
-### Filtering & Data Management:
-- Filter tasks by status: All, Active, Completed.
-- Filter tasks by category: Work, Personal, Urgent.
-- Automatic saving via browser localStorage.
-- JSON export/import for backup or sharing.
-
-### User Experience:
-- Light/Dark mode toggle with saved preference.
-- Responsive interface for multiple screen sizes.
-- Smooth SPA navigation without page reloads.
-- Accessible keyboard navigation with ARIA labels.
+### Task Management
+- Create, edit, and delete tasks  
+- Assign categories (Work, Personal, Urgent)  
+- Set priority levels (Low, Medium, High)  
+- Add deadlines and optional project grouping  
+- Mark tasks as completed with visual feedback
 
 ---
-
-## Development Process
-
-### Agile Workflow:
-TaskFlow was developed using an Agile-inspired iterative approach:
-
-- **Incremental Sprints:** Features were implemented and tested in 10 bi-weekly sprints, starting with the SPA layout and progressing to task management, data persistence, and UI improvement.
-      
-- **Continuous Testing:** Usability, functional, and performance testing occurred at every stage to ensure a reliable user experience.
-      
-- **Iterative Improvements:** Feedback from each sprint guided refinements, including accessibility enhancements, layout adjustments, and bug fixes.
-
-### Sprint Highlights
-| Sprint | Focus                  | Outcome                                 |
-| :----: | :--------------------: | :-------------------------------------: |
-| 1      | SPA Layout             | Initial Application Structure           |
-| 2      | Styling                | Responsive design applied               |
-| 3      | Interactive Features   | Dark mode toggle, SPA navigation        |
-| 4      | Task Management        | CRUD tasks implemented                  |
-| 5      | SPA Architecture       | Dynamic updates without reloads         |
-| 6      | Data Persistence       | localStorage saving, JSON export/import |
-| 7      | Prototype Review       | Stable demonstration                    |
-| 8-9    | Testing & Improvements | Usability fixes, bug resolution         |
-| 10     | Final Refinement       | Full application ready for deployment   |
-
+### Extended Task Functionality
+- Recurring tasks (daily / weekly regeneration)  
+- Task timer for tracking time spent on tasks  
+- Progress tracker showing completion percentage  
+- Visual indicators for:
+  - Overdue tasks  
+  - Upcoming tasks (reminders)  
+  - Priority levels
 ---
-
-## Commit History Note
-Due to GitHub tracking progress through commits, historical versions of the TaskFlow project were committed sequentially on the same day. These commits represent prior development work completed over multiple weeks. Each commit includes incremental updates to HTML, CSS, and JavaScript files, reflecting the evolution of the application’s features and styling.
-
----
-
-## Functional & Non-Functional Requirements
-
-### Functional Requirements:
-- Task creation, editing, deletion.
-- Mark tasks as completed.
-- Task filtering by status/category.
-- LocalStorage persistence
-- Dark mode toggle
-- JSON export/import
-
-### Non-Functional Requirements:
-- Responsive design for mobile and desktop.
-- Fast, efficient performance.
-- Accessibility compliance.
-- Cross-browser compatibility (Chrome, Firefox, Safari, Edge).
-
----
-
-## Technologies Used
-- **HTML** - structure and content.
-- **CSS** - styling, responsive layout, and dark mode.
-- **JavaScript** - SPA navigation, task management, JSON handling.
-- **LocalStorage** - persistent data storage.
-
----
-
-## Installation & Usage
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/amaziz1/comp1004_project.git
-3. Open `task_flow.html` in a modern web browser.
-4. Navigate sections using the menu bar or scroll naturally.
-
-### Task Manager
-- Add tasks with a title, deadline, and category.
-- Filter tasks by status or category.
-- Mark tasks complete or delete them.
-- Export tasks as JSON or import tasks from a JSON file.
-- Toggle Light/Dark Mode using the moon/sun button in the navigation bar.
-
----
-
-## Legal, Ethical, and Professional Considerations
-- **Data Privacy:** All tasks are stored locally; no external server communication.
-- **Accessibility:** Interface designed for responsive usage and keyboard navigation.
-- **Professional Practices:** GitHub version control, structure documentation, and Agile workflow applied throughout development.
-
----
-
-## Contributing
-TaskFlow is a prototype. Contributions are welcome, especially in:
-
-- Advanced features (e.g., reminders, prioritization, notifications).
-- Accessibility enhancements.
-- External integrations or collaboration features.
-
-Submit a pull request or open an issue for bug reports or suggestions.
-
----
-
-## License
-This project is licensed under the MIT License. See `LICENSE.md` for details.
-
----
-
-## Demo
-Open `task_flow.html` locally to explore all features:
-
-- Task creation, editing, deletion.
-- Filtering by status and category.
-- Dark/Light mode toggle.
-- JSON export/import for tasks.
-
----
-
-## Acknowledgements
-Developed by Anas Aziz as part of COMP1004 - Computing Practice coursework. Inspired by Agile Principles, iterative development, and modern SPA design practices.
-
-
-
-
-
+### Filtering & Search
+- Filter tasks by:
+  - Status (All / Active / Completed)  
+  - Category  
+p>   - Project grouping</p>   
+d>- Real-time search functionality across tasks</div>
+d>___
+d>## Data Persistence & Export</div>
+d>- Automatic saving using localStorage</div>
+d>- Export tasks as:</div>
+d>   - JSON (backup and restore)</div>
+d>   - CSV (data portability)</div>
+d>- Import tasks from JSON with validation and error handling</div>
+d>___
+d>## User Interface & Experience</div>
+d>### Theme System</div>
+d>- Light/Dark mode toggle</div>
+d>- Implemented using CSS variables for scalable theming</div>
+d>- User preference saved in localStorage</div>
+d>___
+d>### Responsive Design</div>
+d>- Fully responsive layout using Flexbox and media queries</div>
+d>- Optimised for desktop, tablet, and mobile devices</div>
+d>___
+d>### Accessibility</div>
+d>- Semantic HTML structure</div>
+d>- ARIA labels for assistive technologies</div>
+d>- Keyboard-friendly navigation</div>
+d>- High contrast dark mode support</div>
+d>___
+d>### UX Enhancements</div>
+d>- Visual task priority indicators</div>
+d>- Overdue and reminder highlighting</div>
+d>- Progress bar with dynamic updates</div>
+to inline filtering and search feedback
