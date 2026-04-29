@@ -160,9 +160,9 @@ The project was developed using an Agile-inspired iterative approach:
 
 1.  Clone the repository:
 
-git clone https://github.com/amaziz1/comp1004\_project.git
+git clone https://github.com/amaziz1/comp1004_project.git
 
-2.  Open task\_flow.html in a modern web browser
+2.  Open task_flow.html in a modern web browser after downloading it.
 
 **Usage:**
 
