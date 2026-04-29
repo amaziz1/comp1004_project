@@ -28,29 +28,36 @@
 
         <!-- Home Section -->
         <section id="home" class="spa-section">
-            <h1>Welcome to the SPA Project: TaskFlow</h1>
-            <p>This is an interactive Single Page Application (SPA) to manage your daily tasks with dynamic content and smooth navigation.</p>
+            <h1>Stay Organised with TaskFlow</h1>
+            <p>Plan, track, and complete your daily tasks with ease. TaskFlow helps you stay focused with smart reminders, progress tracking, and powerful task organisation—all in one place.</p>
         </section>
 
         <!-- About Section -->
         <section id="about" class="spa-section hidden">
             <h2>About This Project</h2>
-            <p>This SPA was developed as a project for the COMP1004 course. It demonstrates dynamic content loading, a task manager, and an interactive interface with dark/light mode.</p>
+            <p>
+                TaskFlow is a Single Page Application built using HTML, CSS, and JavaScript.
+                It demonstrates dynamic content rendering, local storage persistence, and interactive UI features.
+            </p>
+
+            <p>
+                Unlike basic task lists, TaskFlow includes task prioritisation, recurring tasks, project grouping, and progress tracking—helping users stay organised and productive.
+            </p>
         </section>
 
         <!-- Features Section -->
         <section id="features" class="spa-section hidden">
             <h2>Features</h2>
             <ul>
-                <li>Interactive Task Management</li>
-                <li>Dynamic Dark Mode Toggle</li>
-                <li>JSON / CSV Import/Export for tasks</li>
-                <li>Smooth Navigation</li>
-                <li>Task Prioritization and Progress Tracker</li>
-                <li>Task Reminders</li>
-                <li>Multiple Lists / Projects Support</li>
-                <li>Recurring Tasks</li>
-                <li>Task Time Tracking</li>
+                <li><strong>Interactive Task Management:</strong> Add, edit, and manage tasks</li>
+                <li><strong>Dark Mode:</strong> Toggle between light and dark themes for better usability</li>
+                <li><strong>Import/Export:</strong> Save and load tasks using JSON or CSV files</li>
+                <li><strong>Progress Tracker:</strong> Visualise your task completion progress</li>
+                <li><strong>Task Prioritisation:</strong> Highlight important tasks with priority levels</li>
+                <li><strong>Reminders:</strong> Get visual alerts for upcoming or overdue tasks</li>
+                <li><strong>Projects:</strong> Group tasks into separate categories or workflows</li>
+                <li><strong>Recurring Tasks:</strong> Automatically repeat daily or weekly tasks</li>
+                <li><strong>Time Tracking:</strong> Track how long you spend on each task</li>
             </ul>
         </section>
 
@@ -130,10 +137,10 @@
 
             <!-- Progress Tracker with dynamic label -->
             <div id="progressTracker" class="progress-tracker" aria-label="Task completion progress">
-                <div id="progressLabel" style="font-size:0.9rem; color:gray; text-align:center; margin-bottom:3px;">
-                    Tasks Completed: 0/0
+                <div class="progress-bg">
+                    <div id="progressBar" class="progress-bar"></div>
                 </div>
-                <div id="progressBar" class="progress-bar"></div>
+                <div id="progressLabel">Tasks Completed: 0/0</div>
             </div>
 
             <!-- Task List -->
@@ -159,8 +166,7 @@
                 <input id="email" placeholder="Email" required aria-label="Email">
                 <textarea id="message" placeholder="Your message..." required aria-label="Message"></textarea>
                 <div id="wordCounter">0/250</div>
-                <div id="msgHint" style="font-size:0.8rem; color:gray;">Max 250 words</div>
-                <button>Send Message</button>
+                <button type="submit">Send Message</button>
             </form>
             <div id="thankYou" class="hidden">
                 <h3>Thank you for your message!</h3>
