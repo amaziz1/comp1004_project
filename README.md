@@ -35,7 +35,7 @@ The project prioritises:
 
 **Task Management**
 
--   Create, edit, and delete tasks
+-   Create and delete tasks
 -   Assign categories (Work, Personal, Urgent)
 -   Set priority levels (Low, Medium, High)
 -   Add deadlines and optional project grouping
@@ -76,7 +76,7 @@ The project prioritises:
 -   JSON (backup and restore)
 -   CSV (data portability)
 
--   Import tasks from JSON with validation and error handling
+-   Import tasks from JSON with basic validation and error handling
 
 * * *
 
@@ -100,8 +100,7 @@ The project prioritises:
 **Accessibility**
 
 -   Semantic HTML structure
--   ARIA labels for assistive technologies
--   Keyboard-friendly navigation
+-   Basic keyboard accessibility and ARIA support
 -   High contrast dark mode support
 
 * * *
