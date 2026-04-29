@@ -158,11 +158,19 @@ The project was developed using an Agile-inspired iterative approach:
 
 **Installation & Usage**
 
-1.  Clone the repository:
+### Option 1 (Recommended)
+Download the full project:
+
+- Click **Code → Download ZIP**
+- Extract the folder
+- Open `task_flow.html` in a modern web browser
+
+### Option 2
+Clone the repository:
 
 git clone https://github.com/amaziz1/comp1004_project.git
 
-2.  Open task_flow.html in a modern web browser after downloading it.
+Then open task_flow.html in a browser from the project folder.
 
 **Usage:**
 
