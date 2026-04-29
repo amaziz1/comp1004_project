@@ -61,11 +61,11 @@ li {
     transition: background var(--transition-speed), border var(--transition-speed);
 }
 
-    /* ===================== Overdue Tasks ===================== */
-    li.overdue {
-        border-left: 5px solid var(--overdue-border);
-        background-color: var(--overdue-bg);
-    }
+/* ===================== Overdue Tasks ===================== */
+li.overdue {
+    border-left: 5px solid var(--overdue-border);
+    background-color: var(--overdue-bg);
+}
 
 body.dark-mode li.overdue {
     background-color: #550000;
@@ -94,30 +94,30 @@ nav {
     z-index: 100;
 }
 
-    nav ul {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 0;
-        padding: 0;
-    }
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
 
-    nav button {
-        background-color: transparent;
-        color: var(--text);
-        padding: 8px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background var(--transition-speed), color var(--transition-speed);
-    }
+nav button {
+    background-color: transparent;
+    color: var(--text);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background var(--transition-speed), color var(--transition-speed);
+}
 
-        nav button:hover {
-            background-color: var(--accent);
-            color: #fff;
-        }
+nav button:hover {
+    background-color: var(--accent);
+    color: #fff;
+}
 
 .nav-button {
     font-weight: bold;
@@ -163,9 +163,9 @@ form button,
     color: #fff;
 }
 
-    #exportCSV:hover {
-        background-color: #218838;
-    }
+#exportCSV:hover {
+    background-color: #218838;
+}
 
 form button,
 #exportJSON,
@@ -174,11 +174,11 @@ form button,
     color: #fff;
 }
 
-    form button:hover,
-    #exportJSON:hover,
-    #importJSONBtn:hover {
-        background-color: #005fa3;
-    }
+form button:hover,
+#exportJSON:hover,
+#importJSONBtn:hover {
+    background-color: #005fa3;
+}
 
 /* ===================== Task Manager Layout ===================== */
 .task-container,
@@ -188,27 +188,36 @@ form button,
 }
 
 .progress-tracker {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     margin: 10px 0;
     width: 100%;
     max-width: 400px;
+}
+
+.progress-bg {
+    width: 100%;
     height: 20px;
-    border: 1px solid #ccc;
+    background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
+    border: 1px solid #ccc;
 }
 
 .progress-bar {
     height: 100%;
     width: 0%;
-    background-color: var(--accent);
-    transition: width var(--transition-speed);
+    background: linear-gradient(90deg, #0077ff, #00c6ff);
+    transition: width 0.6s ease;
 }
 
 #progressLabel {
+    text-align: center;
     font-size: 0.9rem;
     color: gray;
-    text-align: center;
-    margin-bottom: 3px;
+    margin-top: 5px;
+    margin-bottom: 6px;
 }
 
 /* ===================== Task Manager Filter Buttons ===================== */
@@ -222,35 +231,22 @@ form button,
     transition: background 0.2s, border-color 0.2s;
 }
 
-    #task-filters button:hover {
-        background-color: var(--accent);
-        color: #fff;
-    }
+#task-filters button:hover {
+    background-color: var(--accent);
+    color: #fff;
+}
 
-    #task-filters button.active {
-        background-color: var(--accent);
-        color: #fff;
-        border-color: #005fa3;
-        box-shadow: 0 0 3px rgba(0,0,0,0.3);
-    }
+#task-filters button.active {
+    background-color: var(--accent);
+    color: #fff;
+    border-color: #005fa3;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    transform: scale(0.97);
+}
 
 /* Slight spacing between filters and search input */
 #task-filters {
     margin-bottom: 8px;
-}
-
-/* Spacing for progress label and bar */
-#progressLabel {
-    margin-bottom: 6px;
-}
-
-/* Subtle color differences for overdue/reminder tasks */
-li.overdue {
-    background-color: #ffe6e6; /* slightly pink/red */
-}
-
-li.reminder {
-    background-color: #fff8e6; /* slightly yellow */
 }
 
 /* Add spacing for task list items for readability */
@@ -348,48 +344,65 @@ body.dark-mode .testimonial-card p {
     color: var(--dark-text);
 }
 
+.testimonial-text {
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.testimonial-author {
+    font-size: 0.9rem;
+    color: gray;
+}
+
+.testimonial-card {
+    border-left: 4px solid var(--accent);
+}
+
 /* ===================== Dark Mode ===================== */
 body.dark-mode {
     background: var(--dark-bg);
     color: var(--dark-text);
 }
 
-    body.dark-mode nav {
-        background: var(--dark-card);
-        border-color: var(--dark-border);
-    }
+body.dark-mode nav {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
 
-        body.dark-mode nav button {
-            color: var(--dark-text);
-        }
+body.dark-mode nav button {
+    color: var(--dark-text);
+}
 
-    body.dark-mode li {
-        background: var(--dark-card);
-        border-color: var(--dark-border);
-    }
+body.dark-mode li {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
 
-    body.dark-mode footer {
-        background: var(--dark-card);
-        color: var(--dark-text);
-    }
+body.dark-mode footer {
+    background: var(--dark-card);
+    color: var(--dark-text);
+}
 
-    body.dark-mode form input,
-    body.dark-mode form select,
-    body.dark-mode form textarea,
-    body.dark-mode form button,
-    body.dark-mode .task-search {
-        background-color: #333;
-        color: var(--dark-text);
-        border: 1px solid var(--dark-border);
-    }
+body.dark-mode form input,
+body.dark-mode form select,
+body.dark-mode form textarea,
+body.dark-mode form button,
+body.dark-mode .task-search {
+    background-color: #333;
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
 
-        body.dark-mode form input:focus,
-        body.dark-mode form select:focus,
-        body.dark-mode form textarea:focus,
-        body.dark-mode form button:focus {
-            border-color: var(--accent);
-        }
+body.dark-mode form input:focus,
+body.dark-mode form select:focus,
+body.dark-mode form textarea:focus,
+body.dark-mode form button:focus {
+    border-color: var(--accent);
+}
 
+body.dark-mode #wordCounter {
+    color: var(--dark-text);
+}
 /* ===================== Transitions ===================== */
 body, nav, li, footer, #thankYou {
     transition: background var(--transition-speed), color var(--transition-speed);
