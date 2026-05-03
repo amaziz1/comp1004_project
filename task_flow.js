@@ -311,7 +311,7 @@ document.getElementById("exportCSV").addEventListener("click", () => {
     a.click();
 });
 
-/* ===================== CONTACT FORM (RESTORED ORIGINAL LOGIC) ===================== */
+/* ===================== CONTACT FORM ===================== */
 const contactForm = document.getElementById("contactForm");
 const msg = document.getElementById("message");
 const counter = document.getElementById("wordCounter");
